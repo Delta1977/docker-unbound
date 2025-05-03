@@ -128,6 +128,7 @@ COPY <<-"EOF" /entrypoint.sh
 	#!/bin/sh
 	set -e
 	unbound-checkconf /etc/unbound/unbound.conf
+  unbound-control-setup
 	exec unbound -d -c /etc/unbound/unbound.conf
 EOF
 CMD ["sh", "/entrypoint.sh"]
