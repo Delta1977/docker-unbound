@@ -127,8 +127,8 @@ VOLUME [ "/config" ]
 COPY <<-"EOF" /entrypoint.sh
 	#!/bin/sh
 	set -e
-	unbound-checkconf /etc/unbound/unbound.conf
   unbound-control-setup
+	unbound-checkconf /etc/unbound/unbound.conf
 	exec unbound -d -c /etc/unbound/unbound.conf
 EOF
 CMD ["sh", "/entrypoint.sh"]
