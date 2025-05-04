@@ -118,13 +118,13 @@ RUN mkdir -p /config \
   && chown -R unbound:unbound /etc/unbound /run/unbound \
   && rm -rf /tmp/*
   
-RUN  unbound-control-setup
 
 USER unbound
 
 EXPOSE 5053/tcp
 EXPOSE 5053/udp
 VOLUME [ "/config" ]
+
 
 COPY <<-"EOF" /entrypoint.sh
 	#!/bin/sh
