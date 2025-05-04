@@ -117,6 +117,8 @@ RUN mkdir -p /config \
   && adduser -D -H -u 1500 -G unbound -s /bin/sh unbound \
   && chown -R unbound:unbound /etc/unbound /run/unbound \
   && rm -rf /tmp/*
+  
+RUN  unbound-control-setup
 
 USER unbound
 
@@ -127,7 +129,6 @@ VOLUME [ "/config" ]
 COPY <<-"EOF" /entrypoint.sh
 	#!/bin/sh
 	set -e
-  unbound-control-setup
 	unbound-checkconf /etc/unbound/unbound.conf
 	exec unbound -d -c /etc/unbound/unbound.conf
 EOF
