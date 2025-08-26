@@ -1,11 +1,11 @@
-<p align="center"><a href="https://github.com/crazy-max/docker-unbound" target="_blank"><img height="128" src="https://raw.githubusercontent.com/crazy-max/docker-unbound/master/.github/docker-unbound.jpg"></a></p>
+<p align="center"><a href="https://github.com/Delta1977/docker-unbound" target="_blank"><img height="128" src="https://raw.githubusercontent.com/Delta1977/docker-unbound/master/.github/docker-unbound.jpg"></a></p>
 
 <p align="center">
-  <a href="https://hub.docker.com/r/crazymax/unbound/tags?page=1&ordering=last_updated"><img src="https://img.shields.io/github/v/tag/crazy-max/docker-unbound?label=version&style=flat-square" alt="Latest Version"></a>
-  <a href="https://github.com/crazy-max/docker-unbound/actions?workflow=build"><img src="https://img.shields.io/github/actions/workflow/status/crazy-max/docker-unbound/build.yml?branch=master&label=build&logo=github&style=flat-square" alt="Build Status"></a>
+  <a href="https://hub.docker.com/r/crazymax/unbound/tags?page=1&ordering=last_updated"><img src="https://img.shields.io/github/v/tag/Delta1977/docker-unbound?label=version&style=flat-square" alt="Latest Version"></a>
+  <a href="https://github.com/Delta1977/docker-unbound/actions?workflow=build"><img src="https://img.shields.io/github/actions/workflow/status/Delta1977/docker-unbound/build.yml?branch=master&label=build&logo=github&style=flat-square" alt="Build Status"></a>
   <a href="https://hub.docker.com/r/crazymax/unbound/"><img src="https://img.shields.io/docker/stars/crazymax/unbound.svg?style=flat-square&logo=docker" alt="Docker Stars"></a>
   <a href="https://hub.docker.com/r/crazymax/unbound/"><img src="https://img.shields.io/docker/pulls/crazymax/unbound.svg?style=flat-square&logo=docker" alt="Docker Pulls"></a>
-  <br /><a href="https://github.com/sponsors/crazy-max"><img src="https://img.shields.io/badge/sponsor-crazy--max-181717.svg?logo=github&style=flat-square" alt="Become a sponsor"></a>
+  <br /><a href="https://github.com/sponsors/Delta1977"><img src="https://img.shields.io/badge/sponsor-crazy--max-181717.svg?logo=github&style=flat-square" alt="Become a sponsor"></a>
   <a href="https://www.paypal.me/crazyws"><img src="https://img.shields.io/badge/donate-paypal-00457c.svg?logo=paypal&style=flat-square" alt="Donate Paypal"></a>
 </p>
 
@@ -15,7 +15,7 @@ Docker image for [Unbound](https://unbound.net/), a validating, recursive, and
 caching DNS resolver.
 
 > [!TIP] 
-> Want to be notified of new releases? Check out 🔔 [Diun (Docker Image Update Notifier)](https://github.com/crazy-max/diun)
+> Want to be notified of new releases? Check out 🔔 [Diun (Docker Image Update Notifier)](https://github.com/Delta1977/diun)
 > project!
 
 ___
@@ -45,7 +45,7 @@ ___
 ## Build locally
 
 ```shell
-git clone https://github.com/crazy-max/docker-unbound.git
+git clone https://github.com/Delta1977/docker-unbound.git
 cd docker-unbound
 
 # Build image and output to docker (default)
@@ -60,7 +60,7 @@ docker buildx bake image-all
 | Registry                                                                                           | Image                       |
 |----------------------------------------------------------------------------------------------------|-----------------------------|
 | [Docker Hub](https://hub.docker.com/r/crazymax/unbound/)                                           | `crazymax/unbound`          |
-| [GitHub Container Registry](https://github.com/users/crazy-max/packages/container/package/unbound) | `ghcr.io/crazy-max/unbound` |
+| [GitHub Container Registry](https://github.com/users/Delta1977/packages/container/package/unbound) | `ghcr.io/Delta1977/unbound` |
 
 Following platforms for this image are available:
 
@@ -238,7 +238,7 @@ cachedb:
 ## Contributing
 
 Want to contribute? Awesome! The most basic way to show your support is to star
-the project, or to raise issues. You can also support this project by [**becoming a sponsor on GitHub**](https://github.com/sponsors/crazy-max)
+the project, or to raise issues. You can also support this project by [**becoming a sponsor on GitHub**](https://github.com/sponsors/Delta1977)
 or by making a [PayPal donation](https://www.paypal.me/crazyws) to ensure this
 journey continues indefinitely!
 
