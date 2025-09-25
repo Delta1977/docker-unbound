@@ -2,10 +2,8 @@
   "extends": ["config:base"],
   "labels": ["dependencies"],
   "automerge": false,
-  "schedule": [
-    "before 9am on every day",
-    "after 7am on every day"
-  ],
+  "description": "Schedule daily before 4 AM",
+  "schedule": ["* 0-3 * * *"],
   "packageRules": [
     {
       "description": "Update Docker base images and ARGs",
