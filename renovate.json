@@ -22,7 +22,7 @@
       "description": "Update Unbound, LDNS, and XX versions declared as ARGs",
       "matchDatasources": ["github-tags"],
       "matchPackageNames": [
-        "unbound", "ldns", "tonistiigi/xx"
+        "NLnetLabs/unbound", "NLnetLabs/ldns", "tonistiigi/xx"
       ],
       "matchFileNames": ["Dockerfile"],
       "automerge": false
