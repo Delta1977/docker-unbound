@@ -106,7 +106,6 @@ RUN apk --update --no-cache add \
     libpcap \
     openssl \
     shadow \
-  && RUN apk -U upgrade \
   && mkdir -p /run/unbound \
   && unbound -V \
   && unbound-anchor -v || true \
