@@ -10,11 +10,13 @@ FROM --platform=$BUILDPLATFORM tonistiigi/xx:${XX_VERSION} AS xx
 FROM --platform=$BUILDPLATFORM alpine:${ALPINE_VERSION} AS base
 COPY --from=xx / /
 RUN apk --update --no-cache add binutils clang curl file make pkgconf tar tree xz
+RUN apk --upgrade --no-cache
 
 FROM base AS base-build
 ENV XX_CC_PREFER_LINKER=ld
 ARG TARGETPLATFORM
 RUN xx-apk --no-cache add gcc g++ expat-dev hiredis hiredis-dev libevent-dev libcap libpcap-dev openssl-dev perl
+RUN xx-apk --upgrade --no-cache
 RUN xx-clang --setup-target-triple
 
 FROM base AS unbound-src
@@ -104,6 +106,7 @@ RUN apk --update --no-cache add \
     libpcap \
     openssl \
     shadow \
+  && RUN apk -U upgrade \
   && mkdir -p /run/unbound \
   && unbound -V \
   && unbound-anchor -v || true \
