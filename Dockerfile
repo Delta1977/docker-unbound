@@ -102,7 +102,9 @@ RUN apk update --no-cache add \
     dnssec-root \
     expat \
     hiredis \
+    hiredis-dev \    
     libevent \
+    libevent-dev \    
     libpcap \
     openssl \
     shadow \
