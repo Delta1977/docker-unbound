@@ -96,7 +96,7 @@ FROM alpine:${ALPINE_VERSION}
 COPY --from=unbound-build /out /
 COPY --from=ldns-build /out /
 
-RUN apk update --no-cache add \
+RUN apk --update --no-cache add \
     ca-certificates \
     dns-root-hints \
     dnssec-root \
@@ -106,6 +106,7 @@ RUN apk update --no-cache add \
     libpcap \
     openssl \
     shadow \
+  && apk upgrade --no-cache \     
   && mkdir -p /run/unbound \
   && unbound -V \
   && unbound-anchor -v || true \
