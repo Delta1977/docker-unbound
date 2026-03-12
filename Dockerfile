@@ -105,9 +105,8 @@ RUN apk update --no-cache add \
     libevent \
     libpcap \
     openssl \
-    shadow 
-RUN apk upgrade --no-cache 
-RUN mkdir -p /run/unbound \
+    shadow \
+  && mkdir -p /run/unbound \
   && unbound -V \
   && unbound-anchor -v || true \
   && ldns-config --version \
