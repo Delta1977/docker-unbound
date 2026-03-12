@@ -102,14 +102,12 @@ RUN apk update --no-cache add \
     dnssec-root \
     expat \
     hiredis \
-    hiredis-dev \    
     libevent \
-    libevent-dev \    
     libpcap \
     openssl \
-    shadow \
-  && apk upgrade --no-cache \ 
-  && mkdir -p /run/unbound \
+    shadow 
+RUN apk upgrade --no-cache 
+RUN mkdir -p /run/unbound \
   && unbound -V \
   && unbound-anchor -v || true \
   && ldns-config --version \
