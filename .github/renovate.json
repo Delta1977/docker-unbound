@@ -1,0 +1,53 @@
+{
+  "extends": [
+    "config:recommended"
+  ],
+  "labels": [
+    "dependencies"
+  ],
+  "automerge": false,
+  "description": "Schedule daily before 4 AM",
+  "schedule": [
+    "* 0-3 * * *"
+  ],
+  "packageRules": [
+    {
+      "matchCategories": [
+        "docker"
+      ],
+      "enabled": true
+    },
+    {
+      "description": "Update Docker base images and ARGs",
+      "matchDatasources": [
+        "docker",
+        "dockerfile",
+        "docker-version",
+        "github-tags"
+      ],
+      "matchPackageNames": [
+        "alpine",
+        "tonistiigi/xx"
+      ],
+      "matchFileNames": [
+        "Dockerfile"
+      ],
+      "automerge": false
+    },
+    {
+      "description": "Update Unbound, LDNS, and XX versions declared as ARGs",
+      "matchDatasources": [
+        "github-tags"
+      ],
+      "matchPackageNames": [
+        "NLnetLabs/unbound",
+        "NLnetLabs/ldns",
+        "tonistiigi/xx"
+      ],
+      "matchFileNames": [
+        "Dockerfile"
+      ],
+      "automerge": false
+    }
+  ]
+}
