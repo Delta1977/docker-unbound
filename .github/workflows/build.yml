@@ -21,7 +21,7 @@ on:
 
 env:
   DOCKERHUB_SLUG: crazymax/unbound
-  GHCR_SLUG: ghcr.io/crazy-max/unbound
+  GHCR_SLUG: ghcr.io/delta1977/unbound
 
 jobs:
   build:
@@ -33,10 +33,9 @@ jobs:
       -
         name: Docker meta
         id: meta
-        uses: docker/metadata-action@030e881283bb7a6894de51c315a6bfe6a94e05cf # v6.0.0
+        uses: docker/metadata-action@v6
         with:
           images: |
-            ${{ env.DOCKERHUB_SLUG }}
             ${{ env.GHCR_SLUG }}
           tags: |
             type=match,pattern=(.*)-r,group=1
@@ -45,20 +44,20 @@ jobs:
           labels: |
             org.opencontainers.image.title=Unbound
             org.opencontainers.image.description=A validating, recursive, and caching DNS resolver
-            org.opencontainers.image.vendor=CrazyMax
+            org.opencontainers.image.vendor=delta1977
       -
         name: Set up QEMU
-        uses: docker/setup-qemu-action@ce360397dd3f832beb865e1373c09c0e9f86d70a # v4.0.0
+        uses: docker/setup-qemu-action@v4 # v4.0.0
       -
         name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@4d04d5d9486b7bd6fa91e7baf45bbb4f8b9deedd # v4.0.0
-      -
-        name: Login to DockerHub
-        if: github.event_name != 'pull_request'
-        uses: docker/login-action@4907a6ddec9925e35a0a9e82d7399ccc52663121 # v4.1.0
-        with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+        uses: docker/setup-buildx-action@v4 # v4.0.0
+      # -
+      #  name: Login to DockerHub
+      #  if: github.event_name != 'pull_request'
+      #  uses: docker/login-action@4907a6ddec9925e35a0a9e82d7399ccc52663121 # v4.1.0
+      #  with:
+      #    username: ${{ secrets.DOCKER_USERNAME }}
+      #    password: ${{ secrets.DOCKER_PASSWORD }}
       -
         name: Login to GHCR
         if: github.event_name != 'pull_request'
@@ -80,13 +79,13 @@ jobs:
         name: Check manifest
         if: github.event_name != 'pull_request'
         run: |
-          docker buildx imagetools inspect ${{ env.DOCKERHUB_SLUG }}:${{ steps.meta.outputs.version }}
+          # docker buildx imagetools inspect ${{ env.DOCKERHUB_SLUG }}:${{ steps.meta.outputs.version }}
           docker buildx imagetools inspect ${{ env.GHCR_SLUG }}:${{ steps.meta.outputs.version }}
       -
         name: Inspect image
         if: github.event_name != 'pull_request'
         run: |
-          docker pull ${{ env.DOCKERHUB_SLUG }}:${{ steps.meta.outputs.version }}
-          docker image inspect ${{ env.DOCKERHUB_SLUG }}:${{ steps.meta.outputs.version }}
+         # docker pull ${{ env.DOCKERHUB_SLUG }}:${{ steps.meta.outputs.version }}
+         # docker image inspect ${{ env.DOCKERHUB_SLUG }}:${{ steps.meta.outputs.version }}
           docker pull ${{ env.GHCR_SLUG }}:${{ steps.meta.outputs.version }}
           docker image inspect ${{ env.GHCR_SLUG }}:${{ steps.meta.outputs.version }}
